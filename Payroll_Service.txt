@@ -1,0 +1,38 @@
+@Akshar Jitendra Hate.
+Date : 22/05/2022
+
+******************************************************
+
+Welcome to payroll service using MySQL.
+
+******************************************************
+
+UC1: Ability to create a payroll service database
+
+******************************************************
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| customer           |
+| employees          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> CREATE DATABASE payroll_service;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> USE payroll_service;
+Database changed
+mysql> SELECT DATABASE();
++-----------------+
+| DATABASE()      |
++-----------------+
+| payroll_service |
++-----------------+
+1 row in set (0.00 sec)
