@@ -120,3 +120,20 @@ mysql> SELECT * FROM employee_payroll;
 mysql> INSERT INTO employee_payroll(name, salary, start) VALUES
     -> ('Swati', 30000.00, '2019-05-13');
 Query OK, 1 row affected (0.04 sec)
+
+******************************************************
+
+UC4: Ability to retrieve all the employee payroll data
+that is added to payroll service database
+
+******************************************************
+
+mysql> SELECT * FROM employee_payroll;
++----+--------+--------+------------+
+| id | name   | salary | start      |
++----+--------+--------+------------+
+|  1 | Akshar |  13000 | 2020-01-21 |
+|  2 | Yogesh |  15000 | 2021-07-02 |
+|  4 | Swati  |  30000 | 2019-05-13 |
++----+--------+--------+------------+
+3 rows in set (0.04 sec)
