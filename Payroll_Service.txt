@@ -163,3 +163,28 @@ mysql> SELECT * FROM employee_payroll WHERE start BETWEEN CAST('2020-01-01' AS D
 |  2 | Yogesh |  15000 | 2021-07-02 |
 +----+--------+--------+------------+
 2 rows in set (0.04 sec)
+
+******************************************************
+
+UC6: Ability to add Gender to Employee Payroll Table
+and Update the Rows to reflect the correct Employee Gender
+
+******************************************************
+
+mysql> ALTER TABLE employee_payroll ADD gender CHAR(1) AFTER name;
+Query OK, 0 rows affected (0.18 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE employee_payroll set gender = 'M' WHERE name = 'Akshar';
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+--------+--------+--------+------------+
+| id | name   | gender | salary | start      |
++----+--------+--------+--------+------------+
+|  1 | Akshar | M      |  13000 | 2020-01-21 |
+|  2 | Yogesh | NULL   |  15000 | 2021-07-02 |
+|  4 | Swati  | NULL   |  30000 | 2019-05-13 |
++----+--------+--------+--------+------------+
+3 rows in set (0.00 sec)
