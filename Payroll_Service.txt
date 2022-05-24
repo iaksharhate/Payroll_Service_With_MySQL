@@ -188,3 +188,50 @@ mysql> select * from employee_payroll;
 |  4 | Swati  | NULL   |  30000 | 2019-05-13 |
 +----+--------+--------+--------+------------+
 3 rows in set (0.00 sec)
+
+******************************************************
+
+UC7: Ability to find sum, average, min, max and number
+of male and female employees
+
+******************************************************
+
+mysql> SELECT SUM(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY gender;
++-------------+
+| SUM(salary) |
++-------------+
+|       28000 |
++-------------+
+1 row in set (0.04 sec)
+
+mysql> SELECT AVG(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY gender;
++-------------+
+| AVG(salary) |
++-------------+
+|       14000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MIN(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY gender;
++-------------+
+| MIN(salary) |
++-------------+
+|       13000 |
++-------------+
+1 row in set (0.04 sec)
+
+mysql> SELECT MAX(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY gender;
++-------------+
+| MAX(salary) |
++-------------+
+|       15000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY gender;
++---------------+
+| COUNT(salary) |
++---------------+
+|             2 |
++---------------+
+1 row in set (0.00 sec)
