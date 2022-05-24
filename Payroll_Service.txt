@@ -235,3 +235,34 @@ mysql> SELECT COUNT(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY ge
 |             2 |
 +---------------+
 1 row in set (0.00 sec)
+
+
+******************************************************
+
+UC8: Ability to extend employee_payroll data to store
+employee information like employee phone, address and
+department
+
+******************************************************
+
+mysql> ALTER TABLE employee_payroll
+    -> ADD PhoneNumber VARCHAR(250) AFTER name,
+    -> ADD Address VARCHAR(250) AFTER PhoneNumber,
+    -> ADD Department VARCHAR (250) NOT NULL AFTER Address;
+Query OK, 0 rows affected (0.17 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE employee_payroll;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name        | varchar(150) | NO   |     | NULL    |                |
+| PhoneNumber | varchar(250) | YES  |     | NULL    |                |
+| Address     | varchar(250) | YES  |     | NULL    |                |
+| Department  | varchar(250) | NO   |     | NULL    |                |
+| gender      | char(1)      | YES  |     | NULL    |                |
+| salary      | double       | NO   |     | NULL    |                |
+| start       | date         | NO   |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.05 sec)
