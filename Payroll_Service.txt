@@ -305,3 +305,29 @@ mysql> DESCRIBE employee_payroll;
 | start       | date         | NO   |     | NULL    |                |
 +-------------+--------------+------+-----+---------+----------------+
 12 rows in set (0.01 sec)
+
+
+******************************************************
+
+UC10: Ability to make Terissa as part of Sales and
+Marketing Department
+
+******************************************************
+
+mysql> INSERT INTO employee_payroll(name, PhoneNumber, Address, Department, gender, BasicPay, Deductions, TaxablePay, IncomeTax, NetPay, start) VALUES
+    -> ('Terissa','8866332255','Mumbai','Sales','F',50000.00,5000.00,5000.00,2500.00,62500.00,'2019-07-12'),
+    -> ('Terissa','8866332255','Mumbai','Marketing','F',50000.00,5000.00,5000.00,2500.00,62500.00,'2019-07-12');
+Query OK, 2 rows affected (0.05 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM employee_payroll;
++----+---------+-------------+---------+------------+--------+----------+------------+------------+-----------+--------+------------+
+| id | name    | PhoneNumber | Address | Department | gender | BasicPay | Deductions | TaxablePay | IncomeTax | NetPay | start      |
++----+---------+-------------+---------+------------+--------+----------+------------+------------+-----------+--------+------------+
+|  1 | Akshar  | NULL        | NULL    |            | M      |    13000 |          0 |          0 |         0 |      0 | 2020-01-21 |
+|  2 | Yogesh  | NULL        | NULL    |            | M      |    15000 |          0 |          0 |         0 |      0 | 2021-07-02 |
+|  4 | Swati   | NULL        | NULL    |            | F      |    30000 |          0 |          0 |         0 |      0 | 2019-05-13 |
+|  5 | Terissa | 8866332255  | Mumbai  | Sales      | F      |    50000 |       5000 |       5000 |      2500 |  62500 | 2019-07-12 |
+|  6 | Terissa | 8866332255  | Mumbai  | Marketing  | F      |    50000 |       5000 |       5000 |      2500 |  62500 | 2019-07-12 |
++----+---------+-------------+---------+------------+--------+----------+------------+------------+-----------+--------+------------+
+5 rows in set (0.00 sec)
