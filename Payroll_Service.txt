@@ -266,3 +266,42 @@ mysql> DESCRIBE employee_payroll;
 | start       | date         | NO   |     | NULL    |                |
 +-------------+--------------+------+-----+---------+----------------+
 8 rows in set (0.05 sec)
+
+
+******************************************************
+
+UC9: Ability to extend employee_payroll table to have
+Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay
+
+******************************************************
+
+mysql> ALTER TABLE employee_payroll RENAME COLUMN salary TO BasicPay;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll
+    -> ADD Deductions DOUBLE NOT NULL AFTER BasicPay,
+    -> ADD TaxablePay Double NOT NULL AFTER Deductions,
+    -> ADD IncomeTax Double NOT NULL AFTER TaxablePay,
+    -> ADD NetPay DOUBLE NOT NULL AFTER IncomeTax;
+Query OK, 0 rows affected (0.19 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE employee_payroll;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name        | varchar(150) | NO   |     | NULL    |                |
+| PhoneNumber | varchar(250) | YES  |     | NULL    |                |
+| Address     | varchar(250) | YES  |     | NULL    |                |
+| Department  | varchar(250) | NO   |     | NULL    |                |
+| gender      | char(1)      | YES  |     | NULL    |                |
+| BasicPay    | double       | NO   |     | NULL    |                |
+| Deductions  | double       | NO   |     | NULL    |                |
+| TaxablePay  | double       | NO   |     | NULL    |                |
+| IncomeTax   | double       | NO   |     | NULL    |                |
+| NetPay      | double       | NO   |     | NULL    |                |
+| start       | date         | NO   |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+12 rows in set (0.01 sec)
